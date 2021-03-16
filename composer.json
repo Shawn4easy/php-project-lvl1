@@ -8,5 +8,8 @@
             "email": "shawn4easy@gmail.com"
         }
     ],
+    "bin": [
+        "bin/brain-games"
+    ],
     "require": {}
 }
