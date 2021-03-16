@@ -1,0 +1,10 @@
+{
+    "name": "hexlet/code",
+    "authors": [
+        {
+            "name": "Danila Zaitsev",
+            "email": "shawn4easy@gmail.com"
+        }
+    ],
+    "require": {}
+}
