@@ -1,15 +1,20 @@
 {
     "name": "hexlet/code",
-    "description": "First project: Brain games",
-    "license": "MIT",
+    "bin": ["bin/brain-games"],
     "authors": [
         {
             "name": "Danila Zaitsev",
             "email": "shawn4easy@gmail.com"
         }
     ],
-    "bin": [
-        "bin/brain-games"
-    ],
-    "require": {}
+    "description": "First project: Brain games",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Brain\\Games\\Cli\\": "src/"
+        }
+    },
+    "require": {
+        "wp-cli/php-cli-tools": "^0.11.12"
+    }
 }
