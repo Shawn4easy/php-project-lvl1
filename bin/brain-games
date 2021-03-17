@@ -6,4 +6,7 @@ use Brain\Games\Cli\Cli;
 require_once __DIR__ . '/../vendor/autoload.php';
 
 $cli = new Cli();
-$cli->helloAndAskName();
+
+$cli->printText('Welcome to the Brain Games!');
+$name = $cli->getTextFromStdin('May I have your name?');
+$cli->printText("Hello, %s!", $name);

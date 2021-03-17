@@ -7,10 +7,21 @@ use function cli\prompt;
 
 class Cli
 {
-    public function helloAndAskName()
+    /**
+     * @param string $text
+     * @param string|null $args
+     */
+    public function printText(string $text, ?string $args = null): void
     {
-        line('Welcome to the Brain Games!');
-        $name = prompt('May I have your name?');
-        line("Hello, %s!", $name);
+        line($text, $args);
+    }
+
+    /**
+     * @param string $text
+     * @return string
+     */
+    public function getTextFromStdin(string $text): string
+    {
+        return prompt($text);
     }
 }
