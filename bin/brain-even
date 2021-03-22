@@ -1,0 +1,44 @@
+#!/usr/bin/env php
+<?php
+
+use Brain\Cli\Cli;
+use Brain\Games\Even;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+$cli = new Cli();
+$even = new Even();
+
+$cli->printText('Welcome to the Brain Games!');
+$name = $cli->returnStdinWithMessageInFirst('May I have your name?');
+$cli->printText("Hello, %s!", $name);
+$cli->printText('Answer "yes" if the number is even, otherwise answer "no".');
+
+for ($i = 0; $i < 3; $i++) {
+    $randNumber = $even->generateRandNumber();
+    $cli->printText("Question: $randNumber");
+
+    $answer = $cli->returnStdinWithMessageInFirst("Your answer");
+    $isEven = $even->isEven($randNumber);
+
+    switch ($answer) {
+        case $even::ANSWER_YES:
+            if (!$isEven) {
+                $cli->printText("'yes' is wrong answer ;(. Correct answer was 'no'.");
+                $cli->printText("Let's try again, %s!", $name);
+                exit;
+            }
+            break;
+        case $even::ANSWER_NO:
+            if ($isEven) {
+                $cli->printText("'no' is wrong answer ;(. Correct answer was 'yes'.");
+                $cli->printText("Let's try again, %s!", $name);
+                exit;
+            }
+            break;
+    }
+
+    $cli->printText('Correct!');
+}
+
+$cli->printText("Congratulations, %s!", $name);
