@@ -1,6 +1,6 @@
 <?php
 
-namespace Brain\Games\Cli;
+namespace Brain\Cli;
 
 use function cli\line;
 use function cli\prompt;
@@ -20,7 +20,7 @@ class Cli
      * @param string $text
      * @return string
      */
-    public function getTextFromStdin(string $text): string
+    public function returnStdinWithMessageInFirst(string $text): string
     {
         return prompt($text);
     }
