@@ -1,12 +1,12 @@
 #!/usr/bin/env php
 <?php
 
-use Brain\Games\Cli\Cli;
+use Brain\Cli\Cli;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
 $cli = new Cli();
 
 $cli->printText('Welcome to the Brain Games!');
-$name = $cli->getTextFromStdin('May I have your name?');
+$name = $cli->returnStdinWithMessageInFirst('May I have your name?');
 $cli->printText("Hello, %s!", $name);
