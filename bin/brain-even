@@ -19,23 +19,12 @@ for ($i = 0; $i < 3; $i++) {
     $cli->printText("Question: $randNumber");
 
     $answer = $cli->returnStdinWithMessageInFirst("Your answer");
-    $isEven = $even->isEven($randNumber);
+    $correctAnswer = $even->getCorrectAnswer($randNumber);
 
-    switch ($answer) {
-        case $even::ANSWER_YES:
-            if (!$isEven) {
-                $cli->printText("'yes' is wrong answer ;(. Correct answer was 'no'.");
-                $cli->printText("Let's try again, %s!", $name);
-                exit;
-            }
-            break;
-        case $even::ANSWER_NO:
-            if ($isEven) {
-                $cli->printText("'no' is wrong answer ;(. Correct answer was 'yes'.");
-                $cli->printText("Let's try again, %s!", $name);
-                exit;
-            }
-            break;
+    if ($answer !== $correctAnswer) {
+        $cli->printText("'{$answer}' is wrong answer ;(. Correct answer was '{$correctAnswer}'.");
+        $cli->printText("Let's try again, %s!", $name);
+        exit;
     }
 
     $cli->printText('Correct!');
